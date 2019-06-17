@@ -15,7 +15,7 @@ const cheerioHandler = html => {
             img: item.find('img').eq(0).attr('src'),
             start: item.find('.date-display-start').attr('content'),
             end: item.find('.date-display-end').attr('content'),
-            detail: item.text().trim().replace(title, ''),
+            detail: item.text().trim().replace(title, '').replace(/.*\(UTC\)\s*/i, ''),
             href: item.find('a').eq(0).attr('href')
         })
     }
